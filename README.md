@@ -99,6 +99,12 @@ and the component will generate the following output:
 
 <br>
 
+> [!NOTE]
+> The component outputs a SHA-256 hash.
+>
+
+<br>
+
 > [!CAUTION]
 > Do **NOT** forget to add `is:inline` to the element or else Astro will remove it from the `<SafeResource>` component in order to optimize it.
 >
