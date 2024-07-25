@@ -83,13 +83,13 @@ import SafeResource from '@igor.dvlpr/astro-saferesource'
 
 <br>
 
-> ![CAUTION]
+> [!CAUTION]
 > Do **NOT** forget to add `is:inline` to your resource or else Astro will remove it from the `<SafeResource>` component in order to optimize it.
 >
 
 <br>
 
-> ![TIP]
+> [!TIP]
 > The component will log the page, type of resource (script/style) and the generated hashes in the console of the IDE.
 >
 
