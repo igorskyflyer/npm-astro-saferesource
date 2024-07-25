@@ -36,7 +36,6 @@
 ## 📃 Table of contents
 
 - [Usage](#-usage)
-- [API](#-api)
 - [Examples](#-examples)
 - [Changelog](#-changelog)
 - [License](#-license)
@@ -56,7 +55,43 @@ npm i -D "@igor.dvlpr/astro-saferesource"
 
 <br>
 
-## 🤹🏼 API
+In order to use it, all you need to do is wrap your existing **inline** `script` or `style` tags with the `<SafeResource>` component, i.e.:
+
+<br>
+
+`before.astro`
+```astro
+<script is:inline>
+  console.log('Hello World')
+</script>
+```
+
+<br>
+
+`after.astro`
+```astro
+---
+import SafeResource from '@igor.dvlpr/astro-saferesource'
+---
+
+<SafeResource>
+  <script is:inline> // <-- do not forget to add is:inline, if not present
+    console.log('Hello World')
+  </script>
+</SafeResource>
+```
+
+<br>
+
+> ![CAUTION]
+> Do **NOT** forget to add `is:inline` to your resource or else Astro will remove it from the `<SafeResource>` component in order to optimize it.
+>
+
+<br>
+
+> ![TIP]
+> The component will log the page, type of resource (script/style) and the generated hashes in the console of the IDE.
+>
 
 ---
 
