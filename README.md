@@ -198,7 +198,7 @@ import Layout from '../layouts/Layout.astro'
 
     <SafeResource>
       <style is:inline>
-        #ommwo {
+        .eren-jaeger {
           color: red;
         }
       </style>
