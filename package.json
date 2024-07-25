@@ -46,9 +46,11 @@
   "bugs": {
     "url": "https://github.com/igorskyflyer/npm-astro-saferesource/issues"
   },
+  "dependencies": {
+    "@igor.dvlpr/rawelement": "^1.0.1"
+  },
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
-    "@igor.dvlpr/rawelement": "^1.0.1",
     "@types/node": "^20.14.12",
     "astro": "^4.12.2"
   },
