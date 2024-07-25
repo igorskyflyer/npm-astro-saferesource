@@ -1,5 +1,5 @@
 // Author: Igor Dimitrijević (@igorskyflyer)
 
-import Component from './Component.astro'
-
-export default Component
+// @ts-ignore
+import SafeResource from './SafeResource.astro'
+export { SafeResource as default }
