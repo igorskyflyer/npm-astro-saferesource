@@ -100,7 +100,7 @@ and the component will generate the following output:
 <br>
 
 > [!CAUTION]
-> Do **NOT** forget to add `is:inline` to your resource or else Astro will remove it from the `<SafeResource>` component in order to optimize it.
+> Do **NOT** forget to add `is:inline` to the element or else Astro will remove it from the `<SafeResource>` component in order to optimize it.
 >
 
 <br>
