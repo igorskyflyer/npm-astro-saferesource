@@ -86,15 +86,15 @@ import SafeResource from '@igor.dvlpr/astro-saferesource'
 
 and the component will generate the following output:
 
-`page.astro`
+`after.html`
 ```astro
-// your page markup
+<!-- other page markup -->
 
 <script integrity="sha256-xhIA8fkWcujZdN5EjKW355zTO9eHOZu4D+SzAE4Qqik=">
   console.log('Hello World')
 </script>
 
-// your page markup
+<!-- other page markup -->
 ```
 
 <br>
