@@ -1,6 +1,6 @@
 {
   "name": "@igor.dvlpr/astro-saferesource",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "🎐 Adds CSP-compliant inline scripts and styles to Astro! 🎠",
   "sideEffects": false,
   "type": "module",
@@ -11,7 +11,7 @@
   "main": "index.ts",
   "module": "index.ts",
   "exports": {
-    ".": "./index.ts"
+    "default": "./index.ts"
   },
   "scripts": {
     "dev": "cd site && npm run dev",
