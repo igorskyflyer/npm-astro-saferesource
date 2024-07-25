@@ -127,8 +127,6 @@ import Layout from '../layouts/Layout.astro'
         document.addEventListener('DOMContentLoaded', () => {
           const easyNav = document.getElementById('easy-nav')
           const easyShow = easyNav.getAttribute('data-show')
-          const navButton = document.getElementById('easy-nav-button')
-          let lastState = ''
 
           if (
             easyShow === 'whenNeeded' &&
@@ -136,62 +134,6 @@ import Layout from '../layouts/Layout.astro'
           ) {
             easyNav.className = 'show'
           }
-
-          function easyNavHandleScroll() {
-            const documentHeight = document.documentElement.scrollHeight
-            const viewportHeight = window.innerHeight
-            const scrollPosition = window.scrollY
-            const middlePoint = (documentHeight - viewportHeight) / 2
-
-            if (scrollPosition > middlePoint) {
-              if (lastState === 'up') {
-                return
-              }
-
-              navButton.classList.add('nav-up')
-              navButton.title = 'Go to top'
-              navButton.onclick = () => {
-                window.scrollTo(1, 1)
-              }
-
-              navButton.classList.remove('animate')
-
-              const timeout = setTimeout(() => {
-                navButton.classList.add('animate')
-                clearTimeout(timeout)
-              }, 0)
-
-              lastState = 'up'
-            } else {
-              if (lastState === 'down') {
-                return
-              }
-
-              navButton.classList.remove('nav-up')
-              navButton.title = 'Go to bottom'
-              navButton.onclick = () => {
-                window.scrollTo(0, document.body.scrollHeight)
-              }
-
-              navButton.classList.remove('animate')
-
-              const timeout = setTimeout(() => {
-                navButton.classList.add('animate')
-                clearTimeout(timeout)
-              }, 0)
-
-              lastState = 'down'
-            }
-          }
-
-          navButton.addEventListener('click', () => {
-            window.scrollTo(0, document.body.scrollHeight)
-          })
-
-          document.addEventListener('scrollend', easyNavHandleScroll)
-
-          // fire immediately to set it up
-          easyNavHandleScroll()
         })
       </script>
     </SafeResource>
