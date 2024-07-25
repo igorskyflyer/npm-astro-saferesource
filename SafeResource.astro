@@ -1,0 +1,46 @@
+---
+// Author: Igor Dimitrijević (@igorskyflyer)
+
+import { RawElement } from '@igor.dvlpr/rawelement'
+import { createHash } from 'node:crypto'
+
+const slot: string = (await Astro.slots.render('default')) || ''
+
+if (typeof slot !== 'string' || slot.length === 0) {
+  throw new Error('No data passed to <SafeResource>.')
+}
+
+function sha256Hash(content: string): string {
+  try {
+    const hash = createHash('sha256')
+    hash.update(content, 'utf-8')
+    return hash.digest('base64')
+  } catch {}
+
+  return ''
+}
+
+let tag: string = ''
+
+if (slot.match(/\s*<script(?:\s[^>]*?)?>/im)) {
+  tag = 'script'
+} else if (slot.match(/\s*<style(?:\s[^>]*?)?>/im)) {
+  tag = 'style'
+} else {
+  throw new Error('<SafeResource> works only for <script> and <style> tags.')
+}
+
+const element: RawElement = new RawElement({
+  tag: tag as keyof HTMLElementTagNameMap,
+  data: slot
+})
+const contentHash: string = sha256Hash(element.source)
+
+if (contentHash.length === 0) {
+  throw new Error(`Couldn't generate a hash for the ${tag}.`)
+}
+
+element.setAttribute('integrity', contentHash)
+---
+
+<Fragment set:html={element.wrapper} />
