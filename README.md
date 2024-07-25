@@ -106,7 +106,7 @@ and the component will generate the following output:
 <br>
 
 > [!TIP]
-> The component will log the page, type of resource (script/style) and the generated hashes in the console of the IDE.
+> The component will log the ***page***, ***type*** of resource (script/style) and the generated ***hashes*** in the console of the IDE.
 >
 
 ---
